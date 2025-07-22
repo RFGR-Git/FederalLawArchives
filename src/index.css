@@ -1,13 +1,153 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+    /* Tailwind CSS Directives */
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+    /* Google Fonts Imports */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=PT+Serif:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); /* Added Roboto if needed */
+
+    /* Global Base Styles */
+    body {
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'PT Serif', serif;
+    }
+
+    /* New Color Palette CSS Variables for Dark Mode */
+    .dark-mode {
+        --bg-dark-background: #1a1a2e; /* Deeper dark blue/purple */
+        --bg-dark-card: #2a2a4a;
+        --text-dark: #e0e0e0;
+        --text-secondary-dark: #b0b0b0;
+        --border-dark: #4a4a6e;
+        --input-bg-dark: #3a3a5e;
+        --input-border-dark: #5a5a7e;
+        --placeholder-dark: #8080a0;
+    }
+    /* Apply dark mode colors based on variables */
+    .dark-mode .bg-primary-dark-blue { background-color: #001a33; } /* Darker navy for dark mode header */
+    .dark-mode .bg-light-background { background-color: var(--bg-dark-background); }
+    .dark-mode .bg-white-card, .dark-mode .bg-white { background-color: var(--bg-dark-card); }
+    .dark-mode .text-dark-text { color: var(--text-dark); }
+    .dark-mode .text-secondary-grey { color: var(--text-secondary-dark); }
+    .dark-mode .border-secondary-grey { border-color: var(--border-dark); }
+    .dark-mode .input-field {
+        background-color: var(--input-bg-dark);
+        border-color: var(--input-border-dark);
+        color: var(--text-dark); /* Explicit text color for dark mode */
+    }
+    .dark-mode .input-field::placeholder {
+        color: var(--placeholder-dark);
+    }
+    .dark-mode .file\:bg-primary-blue { background-color: #b41f1f; } /* Adjust file input button for dark mode */
+    .dark-mode .file\:text-white { color: white; }
+
+
+    /* Custom Utility Classes (extracted from App.js style block) */
+
+    /* Button Styles */
+    .btn-primary {
+        @apply bg-primary-dark-blue text-white font-bold py-2 px-4 rounded-md shadow-md hover:bg-blue-800 transition duration-200;
+    }
+    .btn-secondary {
+        @apply bg-secondary-grey text-dark-text font-bold py-2 px-4 rounded-md shadow-md hover:bg-gray-400 transition duration-200;
+    }
+    .btn-primary-red {
+        @apply bg-accent-red text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-red-700 transition duration-300 transform hover:scale-105;
+    }
+    .btn-secondary-blue {
+        @apply bg-primary-dark-blue text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-blue-800 transition duration-300 transform hover:scale-105;
+    }
+
+    /* Input Field Styles */
+    .input-field {
+        @apply w-full p-2 rounded-md border focus:ring-2 focus:ring-gold-accent focus:border-transparent;
+        color: #343a40; /* Default text color for light mode */
+    }
+    .input-field option {
+        color: black; /* Ensure options are visible in select */
+        background-color: white;
+    }
+    .input-field::placeholder {
+        color: #6c757d; /* Default placeholder color for light mode */
+    }
+
+
+    /* Scrollbar Hiding */
+    .law-text-scroll {
+        max-height: 60vh;
+        overflow-y: auto;
+        padding-right: 1rem;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .law-text-scroll::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Animations */
+    .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+    .animate-fade-in-slow { animation: fadeIn 2s ease-out forwards; }
+    .animate-bounce-in { animation: bounceIn 0.8s ease-out forwards; }
+    .animate-waving-flag {
+        animation: wave 2s infinite alternate;
+        transform-origin: bottom center;
+    }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes bounceIn { 0% { opacity: 0; transform: scale(0.8); } 60% { opacity: 1; transform: scale(1.1); } 100% { transform: scale(1); } }
+    @keyframes wave {
+        0% { transform: rotate(0deg); }
+        50% { transform: rotate(5deg); }
+        100% { transform: rotate(0deg); }
+    }
+
+    /* Side Nav Styles */
+    .side-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 250px;
+        background-color: #002856; /* Primary dark blue */
+        padding-top: 4rem; /* Space for header */
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    }
+    .side-nav.open {
+        transform: translateX(0);
+    }
+    .side-nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    }
+    .side-nav-overlay.open {
+        opacity: 1;
+        visibility: visible;
+    }
+    .content-shifted {
+        transform: translateX(250px);
+    }
+    @media (max-width: 768px) {
+        .side-nav {
+            width: 70%; /* Adjust for smaller screens */
+        }
+        .content-shifted {
+            transform: translateX(70%);
+        }
+    }
+    
