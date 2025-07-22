@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/FederalLawArchives/static/css/main.e6c13ad2.css",
+    "main.js": "/FederalLawArchives/static/js/main.7e3b4bf7.js",
+    "static/js/453.d68a300e.chunk.js": "/FederalLawArchives/static/js/453.d68a300e.chunk.js",
+    "index.html": "/FederalLawArchives/index.html",
+    "main.e6c13ad2.css.map": "/FederalLawArchives/static/css/main.e6c13ad2.css.map",
+    "main.7e3b4bf7.js.map": "/FederalLawArchives/static/js/main.7e3b4bf7.js.map",
+    "453.d68a300e.chunk.js.map": "/FederalLawArchives/static/js/453.d68a300e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.7e3b4bf7.js"
+  ]
+}
