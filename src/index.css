@@ -5,7 +5,7 @@
 
     /* Google Fonts Imports */
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=PT+Serif:wght@400;700&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); /* Added Roboto if needed */
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
     /* Global Base Styles */
     body {
@@ -20,7 +20,7 @@
 
     /* New Color Palette CSS Variables for Dark Mode */
     .dark-mode {
-        --bg-dark-background: #1a1a2e; /* Deeper dark blue/purple */
+        --bg-dark-background: #1a1a2e;
         --bg-dark-card: #2a2a4a;
         --text-dark: #e0e0e0;
         --text-secondary-dark: #b0b0b0;
@@ -30,7 +30,7 @@
         --placeholder-dark: #8080a0;
     }
     /* Apply dark mode colors based on variables */
-    .dark-mode .bg-primary-dark-blue { background-color: #001a33; } /* Darker navy for dark mode header */
+    .dark-mode .bg-primary-dark-blue { background-color: #001a33; }
     .dark-mode .bg-light-background { background-color: var(--bg-dark-background); }
     .dark-mode .bg-white-card, .dark-mode .bg-white { background-color: var(--bg-dark-card); }
     .dark-mode .text-dark-text { color: var(--text-dark); }
@@ -39,12 +39,12 @@
     .dark-mode .input-field {
         background-color: var(--input-bg-dark);
         border-color: var(--input-border-dark);
-        color: var(--text-dark); /* Explicit text color for dark mode */
+        color: var(--text-dark);
     }
     .dark-mode .input-field::placeholder {
         color: var(--placeholder-dark);
     }
-    .dark-mode .file\:bg-primary-blue { background-color: #b41f1f; } /* Adjust file input button for dark mode */
+    .dark-mode .file\:bg-primary-blue { background-color: #b41f1f; }
     .dark-mode .file\:text-white { color: white; }
 
 
@@ -67,14 +67,14 @@
     /* Input Field Styles */
     .input-field {
         @apply w-full p-2 rounded-md border focus:ring-2 focus:ring-gold-accent focus:border-transparent;
-        color: #343a40; /* Default text color for light mode */
+        color: #343a40;
     }
     .input-field option {
-        color: black; /* Ensure options are visible in select */
+        color: black;
         background-color: white;
     }
     .input-field::placeholder {
-        color: #6c757d; /* Default placeholder color for light mode */
+        color: #6c757d;
     }
 
 
@@ -113,8 +113,8 @@
         left: 0;
         height: 100%;
         width: 250px;
-        background-color: #002856; /* Primary dark blue */
-        padding-top: 4rem; /* Space for header */
+        background-color: #002856;
+        padding-top: 4rem;
         transform: translateX(-100%);
         transition: transform 0.3s ease-in-out;
         z-index: 1000;
@@ -144,7 +144,7 @@
     }
     @media (max-width: 768px) {
         .side-nav {
-            width: 70%; /* Adjust for smaller screens */
+            width: 70%;
         }
         .content-shifted {
             transform: translateX(70%);
